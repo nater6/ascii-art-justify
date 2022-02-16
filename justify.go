@@ -25,7 +25,6 @@ func main() {
 	if len(os.Args) != 4 {
 		fmt.Println("Usage: go run . [STRING] [BANNER] [OPTION]")
 		fmt.Println("EX: go run . something standard --align=right")
-		fmt.Println("Len prob")
 		return
 	}
 
@@ -446,12 +445,17 @@ func Printer(a []string, w int) {
 	}
 	width := w - length
 	width = width / (len(a) - 1)
+
+	str := ""
 	for i, c := range a {
 		if i == len(a)-1 {
-			fmt.Print(c)
+			str= str + c 
 		} else {
-			fmt.Print(c + strings.Repeat(" ", width))
+			str = str + c + strings.Repeat(" ", width-1)
 		}
+		
 	}
+
+	fmt.Println(str)
 
 }
