@@ -225,8 +225,9 @@ func main() {
 		dash := strings.Index(Output, `\n`)
 
 		for i := 0; i < len(SlcOutput); i++ {
-			if i == dash && dash >= 0 {
-				if len(ln1) != 0 && len(ln2) != 0 && len(ln3) != 0 && len(ln4) != 0 && len(ln5) != 0 && len(ln6) != 0 && len(ln7) != 0 && len(ln8) != 0 {
+			if (i == dash) && (dash >= 0) {
+				fmt.Println("!")
+				if (ln1 == "" || ln2 != "" || ln3 != "" || ln4 != "" || ln5 != "" || ln6 != "" ||ln7 != "" || ln8 != "") {
 
 					sln1 = append(sln1, ln1)
 					sln2 = append(sln2, ln2)
@@ -255,7 +256,7 @@ func main() {
 					Printer(sln8, w)
 
 				} else {
-					fmt.Println()
+					fmt.Println("EMpty Line")
 				}
 
 				sln1 = []string{}
@@ -440,22 +441,26 @@ func RightPrinter(a string, w int) {
 
 func Printer(a []string, w int) {
 	length := 0
-	for _, c := range a {
-		length = length + len(c)
-	}
-	width := w - length
-	width = width / (len(a) - 1)
-
-	str := ""
-	for i, c := range a {
-		if i == len(a)-1 {
-			str= str + c 
-		} else {
-			str = str + c + strings.Repeat(" ", width-1)
+	if len(a) == 1 {
+		fmt.Println(a[0])
+	} else {
+		for _, c := range a {
+			length = length + len(c)
 		}
-		
-	}
+		width := w - length
+		width = width / (len(a) - 1)
 
-	fmt.Println(str)
+		str := ""
+		for i, c := range a {
+			if i == len(a)-1 {
+				str = str + c
+			} else {
+				str = str + c + strings.Repeat(" ", width-1)
+			}
+
+		}
+
+		fmt.Println(str)
+	}
 
 }
