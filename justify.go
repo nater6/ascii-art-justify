@@ -226,8 +226,8 @@ func main() {
 
 		for i := 0; i < len(SlcOutput); i++ {
 			if (i == dash) && (dash >= 0) {
-				fmt.Println("!")
-				if (ln1 == "" || ln2 != "" || ln3 != "" || ln4 != "" || ln5 != "" || ln6 != "" ||ln7 != "" || ln8 != "") {
+
+				if ln1 == "" || ln2 != "" || ln3 != "" || ln4 != "" || ln5 != "" || ln6 != "" || ln7 != "" || ln8 != "" {
 
 					sln1 = append(sln1, ln1)
 					sln2 = append(sln2, ln2)
@@ -256,7 +256,7 @@ func main() {
 					Printer(sln8, w)
 
 				} else {
-					fmt.Println("EMpty Line")
+					fmt.Println()
 				}
 
 				sln1 = []string{}
